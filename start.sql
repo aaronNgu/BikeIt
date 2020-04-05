@@ -20,7 +20,7 @@ CREATE TABLE EmployEmployeeOne
 CREATE TABLE EmployEmployeeTwo
 (
     Email char(25) Primary Key REFERENCES EmployEmployeeOne(Email),
-    Name char(20)
+    Name char(20) UNIQUE 
 
 );
 
@@ -30,21 +30,24 @@ CREATE TABLE TechnicianOne
     Type char(20),
     Name char(20),
     ID char(20),
-    FOREIGN KEY (SIN) REFERENCES EmployEmployeeOne(SIN)
+    FOREIGN KEY (SIN) REFERENCES EmployEmployeeOne(SIN),
+    FOREIGN KEY (Name) REFERENCES EmployEmployeeTwo (Name)
 );
 
 CREATE TABLE TechnicianTwo
 (
     SIN integer,
-    Email char(20),
-    FOREIGN KEY (SIN) REFERENCES EmployEmployeeOne(SIN)
+    Email char(25),
+    FOREIGN KEY (SIN) REFERENCES EmployEmployeeOne(SIN),
+    FOREIGN KEY (Email) REFERENCES EmployEmployeeTwo(Email)
 );
 
 CREATE TABLE Delivery_Person_One
 (
     SIN integer,
-    Email char(20),
-    FOREIGN KEY (SIN) REFERENCES EmployEmployeeOne(SIN)
+    Email char(25),
+    FOREIGN KEY (SIN) REFERENCES EmployEmployeeOne(SIN),
+    FOREIGN KEY (Email) REFERENCES EmployEmployeeTwo(Email)
 );
 
 CREATE TABLE Delivery_Person_Two
@@ -53,14 +56,15 @@ CREATE TABLE Delivery_Person_Two
     Trolley_ID integer,
     Name char(20),
     ID char(20),
-    FOREIGN KEY(SIN) REFERENCES EmployEmployeeOne(SIN)
+    FOREIGN KEY(SIN) REFERENCES EmployEmployeeOne(SIN),
+    FOREIGN KEY (Name) REFERENCES EmployEmployeeTwo (Name)
 );
 
 CREATE TABLE TrolleyTwo
 (
     SIN integer,
     ID integer,
-    LastMaintained Date,
+    LastMaintained Date,  
     FOREIGN KEY (SIN) REFERENCES EmployEmployeeOne(SIN)
 );
 
