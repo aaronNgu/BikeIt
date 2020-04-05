@@ -111,8 +111,8 @@ CREATE TABLE BikeTwo
 
 CREATE TABLE UserOne
 (
-    ID integer,
-    Email char(20)
+    ID integer Primary Key AUTO_INCREMENT,
+    Email char(20) UNIQUE
 );
 
 CREATE TABLE UserTwo
