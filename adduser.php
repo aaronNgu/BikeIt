@@ -27,7 +27,7 @@ if (isset($_POST['add'])) {
 <body>
     <div>
         <form action='adduser.php' method='post'>
-            <h3>Add a user here </h3>
+            <h3>Add a user </h3>
             <table>
                 <tr>
                     <td>Email</td>

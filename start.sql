@@ -117,8 +117,9 @@ CREATE TABLE UserOne
 
 CREATE TABLE UserTwo
 (
-    Email char(20) REFERENCES UserOne(Email),
-    Name char(20)
+    Email char(20) REFERENCES UserOne(Email) ON DELETE CASCADE,
+    Name char(20),
+    CONSTRAINT Email_fk FOREIGN KEY (Email) REFERENCES UserOne(Email) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE AccountOne
