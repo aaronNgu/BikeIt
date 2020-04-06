@@ -116,12 +116,12 @@ CREATE TABLE BikeTwo
 CREATE TABLE UserOne
 (
     ID integer Primary Key AUTO_INCREMENT,
-    Email char(20) UNIQUE
+    Email char(25) UNIQUE
 );
 
 CREATE TABLE UserTwo
 (
-    Email char(20) REFERENCES UserOne(Email) ON DELETE CASCADE,
+    Email char(25) REFERENCES UserOne(Email) ON DELETE CASCADE,
     Name char(20),
     CONSTRAINT Email_fk FOREIGN KEY (Email) REFERENCES UserOne(Email) ON DELETE CASCADE ON UPDATE CASCADE
 );
