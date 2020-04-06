@@ -31,7 +31,7 @@ if (isset($_POST['delete'])) {
             echo "<br>";
         }
         ?>
-        <input type=submit value=delete name=delete>;
+        <input type=submit value=delete name=delete>
     </form>
 </body>
 

@@ -18,8 +18,7 @@ if (isset($_GET['id'])) {
 } else if (isset($_POST['modify'])) {
     
     if (!empty($_POST['email'])) {
-        $sql_update = "UPDATE UserOne SET Email=".$_POST['email']." WHERE ID=".$_POST['id'];
-        echo $sql_update;
+        $sql_update = "UPDATE UserOne SET Email=\"".$_POST['email']."\" WHERE ID=\"".$_POST['id']."\"";
         if ($db->query($sql_update)) {
             echo "Failed to update";
         }
@@ -32,7 +31,6 @@ if (isset($_GET['id'])) {
     $email = mysqli_fetch_object($row)->Email;
     if (!empty($_POST['name'])) {
         $sql_update = "UPDATE UserTwo SET Name=\"".$_POST['name']."\" WHERE Email=\"".$email."\"";
-        echo $sql_update;
         if (!$db->query($sql_update)) {
             echo "Failed to update";
         }
